@@ -17,7 +17,9 @@ class BeaconsAdmin extends Model {
 
     public function applet_content()
     {
-        return $this->hasOne('App\AppletContentAdmin', 'id', 'applet_content_id');
+        return $this->hasOne('App\AppletContentAdmin', 'id', 'applet_content_id')
+                    ->where('is_moderated', true)
+                    ->select('id', 'icon', 'name', 'description', 'source_link');
     }
 
     public function applet_actions()
@@ -25,6 +27,8 @@ class BeaconsAdmin extends Model {
         return $this->hasManyThrough(
             'App\AppletsActionsAdmin', 'App\AppletContentAdmin',
             'id', 'applet_id', 'applet_content_id'
-        );
+        )
+            ->with('actions');
     }
+
 }

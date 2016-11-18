@@ -14,4 +14,8 @@ class AppletsActionsAdmin extends Model {
 
     protected $fillable = ['id', 'applet_id', 'action_id'];
 
+    public function actions()
+    {
+        return $this->hasOne('App\ActionsAdmin', 'id', 'action_id');
+    }
 }

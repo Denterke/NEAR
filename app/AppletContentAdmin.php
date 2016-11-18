@@ -13,10 +13,4 @@ class AppletContentAdmin extends Model {
     public $timestamps  = false;
 
     protected $fillable = ['id', 'icon', 'name', 'description', 'source_link', 'is_moderated'];
-
-    public function applet_actions()
-    {
-        return $this->hasMany('App\AppletsActionsAdmin', 'applet_id', 'id');
-    }
-
 }
