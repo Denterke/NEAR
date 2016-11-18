@@ -36,7 +36,11 @@ class BeaconsAdminController extends CrudController{
         $this->edit = \DataEdit::source(new BeaconsAdmin());
         $this->edit->label('Маячки');
         $this->edit->add('token', 'Токен', 'text')->rule('required');
-        $this->edit->add('applet_content_id', 'Привязанный контент', 'number');
+
+        $blank_applet_option = array("" => "Выберите апплет контент");
+        $applets_name   = \App\AppletContentAdmin::pluck("name", "id")->all();
+        $all_applets_options = $blank_applet_option + $applets_name;
+        $this->edit->add('applet_content_id', 'Апплет', 'select')->options($all_applets_options);
        
         return $this->returnEditView();
     }    

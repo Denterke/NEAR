@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\AplletsActionsAdmin;
+use App\AppletsActionsAdmin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use \Serverfireteam\Panel\CrudController;
 
 use Illuminate\Http\Request;
 
-class AplletsActionsAdminController extends CrudController{
+class AppletsActionsAdminController extends CrudController{
 
     public function all($entity){
         parent::all($entity);
 
         parent::all($entity);
 
-        $this->filter = \DataFilter::source(new AplletsActionsAdmin());
+        $this->filter = \DataFilter::source(new AppletsActionsAdmin());
         $this->filter->add('action', 'Действие', 'text');
         $this->filter->submit('search');
         $this->filter->reset('reset');
@@ -36,7 +36,7 @@ class AplletsActionsAdminController extends CrudController{
         
         parent::edit($entity);
 
-        $this->edit = \DataEdit::source(new AplletsActionsAdmin());
+        $this->edit = \DataEdit::source(new AppletsActionsAdmin());
         $this->edit->label('Действия апплетов');
 
         $blank_applet_option = array("" => "Выберите апплет");
