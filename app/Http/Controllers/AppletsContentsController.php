@@ -66,6 +66,11 @@ class AppletsContentsController extends Controller
         }
     }
 
+    public function update(Request $request, $applet_id)
+    {
+
+    }
+
     public function show($id)
     {
         $applet = AppletContentAdmin::where('id', $id)
