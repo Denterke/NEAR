@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        Залить страницу
-        <br>
-        Админка
-    </div>
-    {{ $applets }}
+    <p>
+        <a href="admin_panel/add_applet">Добавить новый апплет</a>
+    </p>
+    @foreach ($applets as $applet)
+        <p>
+            {{ $applet->applet_content->name}} {{ $applet->applet_content->description}}
+            <a href="admin_panel/edit_applet/{{$applet->applet_content->id}}">Редактировать апплет</a>
+        </p>
+    @endforeach
 @endsection

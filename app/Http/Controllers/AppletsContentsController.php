@@ -13,8 +13,8 @@ use File;
 
 class AppletsContentsController extends Controller
 {
-    public function index() {
-
+    public function index()
+    {
         $applets = UsersApplets::where('user_id', Auth::id())
             ->with('applet_content')
             ->get();
@@ -64,5 +64,13 @@ class AppletsContentsController extends Controller
             $errors = $applet_content->errors();
             return Response::getResponse400($errors);
         }
+    }
+
+    public function show($id)
+    {
+        $applet = AppletContentAdmin::where('id', $id)
+            ->get();
+
+        return view('edit_applet', ['applet' => $applet]);
     }
 }
