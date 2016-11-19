@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AppletContentAdmin;
 use App\HelperClasses\Response;
 use App\UsersApplets;
+use App\UsersBeaconsAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -46,7 +47,7 @@ class AppletsContentsController extends Controller
             $filename = $destinationPath.'/'.$applet_id.'_icon.png';
             File::makeDirectory(public_path().$destinationPath, $mode = 0777, true, true);
 
-            Image::make($icon->getRealPath())->save(public_path().$filename);
+            Image::make($icon->getRealPath())->resize(256, 256)->save(public_path().$filename);
 
             AppletContentAdmin::where('id', $applet_id)
                 ->update(array('icon' => $filename));
@@ -77,5 +78,23 @@ class AppletsContentsController extends Controller
             ->get();
 
         return view('edit_applet', ['applet' => $applet]);
+    }
+
+    public function show_beacons()
+    {
+        $beacons = UsersBeaconsAdmin::where('user_id', Auth::id())
+            ->with('beacons_content')
+            ->get();
+
+        $applets = AppletContentAdmin::where('is_moderated', true)
+            ->select('id', 'name')
+            ->get();
+
+        $applets_arr = [];
+
+        foreach ($applets as $applet)
+            $applets_arr[$applet->id] = $applet->name;
+
+        return view('add_beacons', ['beacons' => $beacons, 'applets' => $applets_arr]);
     }
 }

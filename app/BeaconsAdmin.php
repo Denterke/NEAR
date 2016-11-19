@@ -22,6 +22,11 @@ class BeaconsAdmin extends Model {
                     ->select('id', 'icon', 'name', 'description', 'source_link');
     }
 
+    public function all_applet_content()
+    {
+        return $this->hasOne('App\AppletContentAdmin', 'id', 'applet_content_id');
+    }
+
     public function applet_actions()
     {
         return $this->hasManyThrough(

@@ -14,4 +14,8 @@ class UsersBeaconsAdmin extends Model {
 
     protected $fillable = ['id', 'beacon_id', 'user_id'];
 
+    public function beacons_content()
+    {
+        return $this->hasOne('App\BeaconsAdmin', 'id', 'beacon_id')->with('all_applet_content');
+    }
 }
