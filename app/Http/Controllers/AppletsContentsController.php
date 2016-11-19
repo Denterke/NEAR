@@ -14,11 +14,12 @@ use File;
 class AppletsContentsController extends Controller
 {
     public function index() {
+
         $applets = UsersApplets::where('user_id', Auth::id())
             ->with('applet_content')
             ->get();
 
-        return Response::getResponse200($applets);
+        return view('admin_panel', ['applets' => $applets]);
     }
 
     public function store(Request $request)

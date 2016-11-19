@@ -6,4 +6,5 @@
         <br>
         Админка
     </div>
+    {{ $applets }}
 @endsection
