@@ -22,6 +22,8 @@ Route::get('beacon/{token}&{IMEI}', 'BeaconsController@show');
 
 Route::resource('applet', 'AppletsContentsController');
 
+Route::resource('comment', 'CommentController');
+
 Route::get('like/{IMEI}&{applet_id}', 'LikesController@like');
 
 Route::get('un_like/{IMEI}&{applet_id}', 'LikesController@un_like');
