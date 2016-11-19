@@ -35,3 +35,8 @@ Route::get('admin_panel/edit_applet/{id}', [
     'middleware' => 'auth',
     'uses' => 'AppletsContentsController@show'
 ]);
+
+Route::post('admin_panel/store_applet', [
+    'middleware' => 'auth',
+    'uses' => 'AppletsContentsController@store'
+]);
