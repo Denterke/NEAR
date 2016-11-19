@@ -27,6 +27,11 @@ class BeaconsAdmin extends Model {
         return $this->hasOne('App\AppletContentAdmin', 'id', 'applet_content_id');
     }
 
+    public function likes()
+    {
+        return $this->hasMany('App\Likes', 'applet_id', 'applet_content_id');
+    }
+
     public function applet_actions()
     {
         return $this->hasManyThrough(

@@ -18,5 +18,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 
-Route::resource('beacon', 'BeaconsController');
+Route::get('beacon/{token}&{IMEI}', 'BeaconsController@show');
+
 Route::resource('applet', 'AppletsContentsController');
+
+Route::get('like/{IMEI}&{applet_id}', 'LikesController@like');
+
+Route::get('un_like/{IMEI}&{applet_id}', 'LikesController@un_like');
