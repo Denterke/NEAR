@@ -29,5 +29,15 @@ class Response
 
         return response()->json(['status' => '200', 'message' => 'Данные получены', 'object' => $data]);
     }
+
+    public static function getResponse400($data) {
+
+        return response()->json(['status' => '400', 'message' => $data]);
+    }
+
+    public static function postResponse200($data) {
+
+        return response()->json(['status' => '200', 'message' => $data]);
+    }
 }
 

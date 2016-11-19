@@ -19,3 +19,4 @@ Route::get('/user', function (Request $request) {
 
 
 Route::resource('beacon', 'BeaconsController');
+Route::resource('applet', 'AppletsContentsController');

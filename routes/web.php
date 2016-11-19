@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('admin_panel', [
+    'middleware' => 'auth',
+    'uses' => function () {
+        return view('admin_panel');
+    }
+]);
