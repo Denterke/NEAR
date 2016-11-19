@@ -1,14 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    {!! Form::open(array('url'=>'admin_panel/store_applet','method'=>'POST', 'files'=>true)) !!}
-    {!! Form::token() !!}
 
-    {!! Form::file('icon') !!}
-    {!! Form::text('name', 'Заголовок') !!}
-    {!! Form::text('description', 'Описание') !!}
-    {!! Form::text('source_link', 'Ссылка на источник') !!}
+    <div class="admin-panel-controls">
+        <span class="page-title">Добавить приложение</span>
+        <a href="/admin_panel" class="link-like-button align-right">Вернуться назад</a>
+    </div>
 
-    {!! Form::submit('Добавить') !!}
-    {!! Form::close() !!}
+    <div class="applets-list dashed-top">
+        <div class="beacon-logo"></div>
+
+        {!! Form::open(array('url'=>'admin_panel/store_applet', 'method'=>'POST', 'files'=>true)) !!}
+
+        <p class="field-title">Заголовок</p>
+        {!! Form::text('name', '', ["placeholder" => 'Заголовок']) !!}
+        <p class="field-title">Описание</p>
+        {!! Form::textarea('description', '', ["placeholder" => 'Описание']) !!}
+        <p class="field-title">Ссылка на источник</p>
+        {!! Form::text('source_link', '', ["placeholder" => "Ссылка на источник"]) !!}
+        <p class="field-title">Иконка приложения</p>
+        {!! Form::file('icon') !!}
+
+        {!! Form::submit('Отправить приложение на модерацию') !!}
+        {!! Form::close() !!}
+    </div>
 @endsection
