@@ -123,6 +123,7 @@
 
                 <div class="title m-b-md">
                     <img src="images/schema.png" style="width: 50%;">
+
                 </div>
             </div>
         </div>
