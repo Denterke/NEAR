@@ -59,7 +59,7 @@ class AppletsContentsController extends Controller
 
             $add_user_applet->save();
 
-            return Response::postResponse200('Апплет успешно добавлен!');
+            return redirect()->action("AppletsContentsController@index");
 
         } else {
             $errors = $applet_content->errors();

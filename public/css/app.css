@@ -6595,6 +6595,7 @@ button.close {
 .admin-panel-controls {
     width: 80%;
     margin: 0 10%;
+    position: relative;
 }
 
 .page-title {
@@ -6642,7 +6643,8 @@ textarea {
 
 .align-right {
     position: absolute;
-    right: 10%;
+    right: 0;
+    top: 0;
 }
 
 .applets-list {
@@ -6691,6 +6693,7 @@ textarea {
 .dashed-top {
     border-top: 1px dashed white;
     padding-top: 15px;
+    position: relative;
 }
 
 .field-title {
@@ -6705,8 +6708,8 @@ textarea {
     width: 20vw;
     height: 20vw;
     position: absolute;
-    right: 17%;
-    bottom: 10%;
+    right: 8%;
+    top: 20%;
     opacity: 0.3;
 }
 
