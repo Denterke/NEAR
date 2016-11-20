@@ -7,7 +7,7 @@
         <div class="align-right">
             <a href="/admin_panel/add_applet" class="link-like-button">Добавить приложение</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="/admin_panel/add_applet" class="link-like-button">Настройка маяков</a>
+            <a href="/admin_panel/show_beacons" class="link-like-button">Настройка маяков</a>
         </div>
     </div>
 
